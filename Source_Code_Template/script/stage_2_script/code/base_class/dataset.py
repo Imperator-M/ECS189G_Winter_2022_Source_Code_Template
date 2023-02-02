@@ -18,8 +18,11 @@ class dataset:
     dataset_name = None
     dataset_descrition = None
     
-    dataset_source_folder_path = None
-    dataset_source_file_name = None
+    dataset_train_folder_path = None
+    dataset_train_file_name = None
+
+    dataset_test_folder_path = None
+    dataset_test_file_name = None
     
     data = None
     
