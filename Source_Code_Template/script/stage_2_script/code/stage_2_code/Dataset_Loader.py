@@ -15,7 +15,7 @@ class Dataset_Loader(dataset):
     dataset_train_file_name = None
     
     dataset_test_folder_path = None
-    dateaset_test_file_name = None
+    dataset_test_file_name = None
     
     def __init__(self, dName=None, dDescription=None):
         super().__init__(dName, dDescription)
@@ -46,7 +46,7 @@ class Dataset_Loader(dataset):
             line = line.strip('\n')
             line = line.replace(',', ' ')
             #print(line)
-            elements = [int(i) for i in line.split(' ')]
+            elements = [int(j) for j in line.split(' ')]
             X_test.append(elements[1:])
             y_test.append(elements[0])
             #print("Here's X: ", X_train)
