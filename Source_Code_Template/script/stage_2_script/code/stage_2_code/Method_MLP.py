@@ -11,11 +11,13 @@ import torch
 from torch import nn
 import numpy as np
 
+import matplotlib.pyplot as plt
+
 
 class Method_MLP(method, nn.Module):
     data = None
     # it defines the max rounds to train the model
-    max_epoch = 150
+    max_epoch = 400
     # it defines the learning rate for gradient descent based optimizer for model learning
     learning_rate = 1e-3
 
@@ -60,6 +62,9 @@ class Method_MLP(method, nn.Module):
         # for training accuracy investigation purpose
         accuracy_evaluator = Evaluate_Accuracy('training evaluator', '')
 
+        # For plotting loss over epochs
+        loss = []
+
         # it will be an iterative gradient updating process
         # we don't do mini-batch, we use the whole input as one batch
         # you can try to split X and y into smaller-sized batches by yourself
@@ -80,9 +85,16 @@ class Method_MLP(method, nn.Module):
             # update the variables according to the optimizer and the gradients calculated by the above loss.backward function
             optimizer.step()
 
+            loss.append(train_loss.item())
             if epoch%5 == 0:
                 accuracy_evaluator.data = {'true_y': y_true, 'pred_y': y_pred.max(1)[1]}
-                print('Epoch:', epoch, 'Accuracy:', accuracy_evaluator.evaluate(), 'Loss:', train_loss.item())
+                acc, prec, rec, f1 = accuracy_evaluator.evaluate()
+                print('Epoch:', epoch, 'Accuracy:', acc, 'Precision:', prec, 'Recall:', rec, 'F1:', f1, 'Loss:', train_loss.item())
+        
+        plt.plot(range(len(loss)), loss, marker='o')
+        plt.xlabel('Epoch')
+        plt.ylabel('Loss')
+        plt.savefig('training_convergence_plot.svg', format='svg', dpi=1200)
     
     def test(self, X):
         # do the testing, and result the result
