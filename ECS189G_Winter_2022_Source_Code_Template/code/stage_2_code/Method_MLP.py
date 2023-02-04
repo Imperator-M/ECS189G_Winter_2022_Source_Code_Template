@@ -59,6 +59,7 @@ class Method_MLP(method, nn.Module):
         # for training accuracy investigation purpose
         accuracy_evaluator = Evaluate_Accuracy('training evaluator', '')
         epochNum = []
+        loss = []
         # it will be an iterative gradient updating process
         # we don't do mini-batch, we use the whole input as one batch
         # you can try to split X and y into smaller-sized batches by yourself
@@ -85,6 +86,7 @@ class Method_MLP(method, nn.Module):
                 print('Epoch:', epoch, 'Accuracy:', accuracy, 'precision:', precision,
                 'recall:', recall, 'F1:', f1,'Loss:', train_loss.item())
                 epochNum.append(epoch)
+                loss.append(train_loss.item())
         plt.plot(epochNum, loss, marker='o')
         plt.xlabel('Epochs')
         plt.ylabel('Loss')
