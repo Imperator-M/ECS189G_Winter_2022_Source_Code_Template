@@ -58,7 +58,7 @@ class Method_MLP(method, nn.Module):
         loss_function = nn.CrossEntropyLoss()
         # for training accuracy investigation purpose
         accuracy_evaluator = Evaluate_Accuracy('training evaluator', '')
-        loss = []
+        epochNum = []
         # it will be an iterative gradient updating process
         # we don't do mini-batch, we use the whole input as one batch
         # you can try to split X and y into smaller-sized batches by yourself
@@ -84,8 +84,8 @@ class Method_MLP(method, nn.Module):
                 accuracy, precision, recall, f1 = accuracy_evaluator.evaluate()
                 print('Epoch:', epoch, 'Accuracy:', accuracy, 'precision:', precision,
                 'recall:', recall, 'F1:', f1,'Loss:', train_loss.item())
-                loss.append(train_loss.item())
-        plt.plot(range(len(loss)), loss, marker='o')
+                epochNum.append(epoch)
+        plt.plot(epochNum, loss, marker='o')
         plt.xlabel('Epochs')
         plt.ylabel('Loss')
         plt.show()
