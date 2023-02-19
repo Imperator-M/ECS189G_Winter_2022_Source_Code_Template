@@ -33,15 +33,15 @@ def train_model(trainingDL, model, n_epochs=20):
     torch.save(model, "checkpoint.pth")
     return np.array(epochs), np.array(losses), model
 
-def eval_model(testingDL, model):
+def eval_model(testingDS, model):
     
     with torch.no_grad():
         model.eval()
         numCorrect = 0
-        for (x, y) in testingDL:
+        for (x, y) in testingDS:
             pred = model(x)
             if torch.argmax(pred) == torch.argmax(y):
                 numCorrect += 1
-            #numCorrect += (torch.argmax(pred) == y).type(torch.float).sum().item()
-        
-    print("Accuracy on entire test dataset: ", ((numCorrect/10000)*100))
+    
+    print(len(testingDS))
+    print("Accuracy on entire test dataset: ", ((numCorrect/len(testingDS))*100))
