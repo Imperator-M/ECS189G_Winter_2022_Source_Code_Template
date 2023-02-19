@@ -38,6 +38,6 @@ def tloader(x_train, y_train, x_test, y_test, data):
 
     y_test = torch.Tensor(y_test)
 
-    y_train = func.one_hot(y_train.long(), num_classes=10)
+    #y_train = func.one_hot(y_train.long(), num_classes=10)
 
     return x_train, y_train, x_test, y_test

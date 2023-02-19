@@ -3,9 +3,9 @@ from torch import flatten
 
 # Based on LeNet Architecture: https://pyimagesearch.com/2021/07/19/pytorch-training-your-first-convolutional-neural-network-cnn/
 
-class MNIST_Classifier_CNN(nn.Module):
+class CIFAR_Classifier_CNN(nn.Module):
     def __init__(self):
-        super(MNIST_Classifier_CNN, self).__init__()
+        super(CIFAR_Classifier_CNN, self).__init__()
         self.Matrix1 = nn.Linear(28**2, 100)
         self.Matrix2 = nn.Linear(100, 50)
         self.Matrix3 = nn.Linear(50,10)
