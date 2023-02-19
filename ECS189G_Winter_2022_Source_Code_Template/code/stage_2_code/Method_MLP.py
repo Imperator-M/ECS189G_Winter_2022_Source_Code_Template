@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 class Method_MLP(method, nn.Module):
     data = None
     # it defines the max rounds to train the model
-    max_epoch = 500
+    max_epoch = 10
     # it defines the learning rate for gradient descent based optimizer for model learning
     learning_rate = 1e-3
 
@@ -58,6 +58,7 @@ class Method_MLP(method, nn.Module):
         loss_function = nn.CrossEntropyLoss()
         # for training accuracy investigation purpose
         accuracy_evaluator = Evaluate_Accuracy('training evaluator', '')
+        epochNum = []
         loss = []
         # it will be an iterative gradient updating process
         # we don't do mini-batch, we use the whole input as one batch
@@ -84,8 +85,9 @@ class Method_MLP(method, nn.Module):
                 accuracy, precision, recall, f1 = accuracy_evaluator.evaluate()
                 print('Epoch:', epoch, 'Accuracy:', accuracy, 'precision:', precision,
                 'recall:', recall, 'F1:', f1,'Loss:', train_loss.item())
+                epochNum.append(epoch)
                 loss.append(train_loss.item())
-        plt.plot(range(len(loss)), loss, marker='o')
+        plt.plot(epochNum, loss, marker='o')
         plt.xlabel('Epochs')
         plt.ylabel('Loss')
         plt.show()
@@ -102,5 +104,7 @@ class Method_MLP(method, nn.Module):
         self.train(self.data['train']['X'], self.data['train']['y'])
         print('--start testing...')
         pred_y = self.test(self.data['test']['X'])
+        print(pred_y)
+        print(self.data['test']['y'])
         return {'pred_y': pred_y, 'true_y': self.data['test']['y']}
             
