@@ -1,0 +1,105 @@
+C:\Users\marti\ECS189G_Winter_2022_Source_Code_Template\venv\Scripts\python.exe C:\Users\marti\ECS189G_Winter_2022_Source_Code_Template\script\stage_3_script\script_MNIST.py 
+************ Start ************
+dataset: MNIST , method: convolutional neural network , setting:  , result: saver , evaluation: accuracy
+loading data...
+training set size: 60000 testing set size: 10000
+method running...
+--start training...
+Epoch : 0 [0/60000 (0%)]	Loss: 34.269192	 Accuracy:6.250%
+Epoch : 1 [0/60000 (0%)]	Loss: 0.131271	 Accuracy:96.875%
+Epoch : 2 [0/60000 (0%)]	Loss: 0.226011	 Accuracy:93.750%
+Epoch : 3 [0/60000 (0%)]	Loss: 0.240399	 Accuracy:90.625%
+Epoch : 4 [0/60000 (0%)]	Loss: 0.136289	 Accuracy:93.750%
+--start testing...
+Test accuracy:0.931% 
+saving results...
+evaluating performance...
+************ Overall Performance ************
+CNN Accuracy: 0.9324 +/- None
+CNN Precision: 0.9328947359394888 +/- None
+CNN Recall: 0.9320450424847315 +/- None
+CNN F1: 0.931970183167012 +/- None
+************ Finish ************
+
+Process finished with exit code 0
+
+
+
+C:\Users\marti\ECS189G_Winter_2022_Source_Code_Template\venv\Scripts\python.exe C:\Users\marti\ECS189G_Winter_2022_Source_Code_Template\script\stage_3_script\script_CIFAR.py 
+************ Start ************
+dataset: CIFAR , method: convolutional neural network , setting:  , result: saver , evaluation: accuracy
+loading data...
+training set size: 50000 testing set size: 10000
+method running...
+--start training...
+Epoch : 0 	Loss: 2.926687	 Accuracy:0.000%
+Epoch : 1 	Loss: 1.502774	 Accuracy:60.000%
+Epoch : 2 	Loss: 1.434413	 Accuracy:45.000%
+Epoch : 3 	Loss: 1.280819	 Accuracy:55.000%
+Epoch : 4 	Loss: 1.077045	 Accuracy:75.000%
+Epoch : 5 	Loss: 0.838066	 Accuracy:70.000%
+Epoch : 6 	Loss: 1.059055	 Accuracy:55.000%
+Epoch : 7 	Loss: 0.854012	 Accuracy:65.000%
+Epoch : 8 	Loss: 0.951046	 Accuracy:70.000%
+Epoch : 9 	Loss: 0.522310	 Accuracy:85.000%
+Epoch : 10 	Loss: 0.561005	 Accuracy:90.000%
+Epoch : 11 	Loss: 0.990680	 Accuracy:75.000%
+Epoch : 12 	Loss: 0.656718	 Accuracy:75.000%
+Epoch : 13 	Loss: 0.673045	 Accuracy:80.000%
+Epoch : 14 	Loss: 0.480568	 Accuracy:85.000%
+Epoch : 15 	Loss: 0.425335	 Accuracy:85.000%
+Epoch : 16 	Loss: 0.494467	 Accuracy:80.000%
+Epoch : 17 	Loss: 0.658146	 Accuracy:75.000%
+Epoch : 18 	Loss: 0.399764	 Accuracy:85.000%
+Epoch : 19 	Loss: 0.837205	 Accuracy:70.000%
+Epoch : 20 	Loss: 0.388384	 Accuracy:85.000%
+Epoch : 21 	Loss: 0.327552	 Accuracy:90.000%
+Epoch : 22 	Loss: 0.227526	 Accuracy:90.000%
+Epoch : 23 	Loss: 0.615828	 Accuracy:75.000%
+Epoch : 24 	Loss: 0.554188	 Accuracy:85.000%
+--start testing...
+Test accuracy:0.701% 
+saving results...
+evaluating performance...
+************ Overall Performance ************
+CNN Accuracy: 0.7005 +/- None
+CNN Precision: 0.7074769211753266 +/- None
+CNN Recall: 0.7005 +/- None
+CNN F1: 0.7020172952205599 +/- None
+************ Finish ************
+
+Process finished with exit code 0
+
+
+
+C:\Users\marti\ECS189G_Winter_2022_Source_Code_Template\venv\Scripts\python.exe C:\Users\marti\ECS189G_Winter_2022_Source_Code_Template\script\stage_3_script\script_ORL.py 
+************ Start ************
+dataset: ORL , method: convolutional neural network , setting:  , result: saver , evaluation: accuracy
+loading data...
+training set size: 360 testing set size: 40
+method running...
+--start training...
+Epoch : 0 	Loss: 26.540180	 Accuracy:2.500%
+Epoch : 1 	Loss: 2.401427	 Accuracy:55.000%
+Epoch : 2 	Loss: 0.470456	 Accuracy:90.000%
+Epoch : 3 	Loss: 0.046894	 Accuracy:100.000%
+Epoch : 4 	Loss: 0.006765	 Accuracy:100.000%
+Epoch : 5 	Loss: 0.001521	 Accuracy:100.000%
+Epoch : 6 	Loss: 0.000374	 Accuracy:100.000%
+Epoch : 7 	Loss: 0.000547	 Accuracy:100.000%
+Epoch : 8 	Loss: 0.000150	 Accuracy:100.000%
+Epoch : 9 	Loss: 0.000090	 Accuracy:100.000%
+--start testing...
+Test accuracy:0.925% 
+saving results...
+evaluating performance...
+************ Overall Performance ************
+CNN Accuracy: 0.925 +/- None
+CNN Precision: 0.8958333333333333 +/- None
+CNN Recall: 0.925 +/- None
+CNN F1: 0.9041666666666668 +/- None
+************ Finish ************
+C:\Users\marti\ECS189G_Winter_2022_Source_Code_Template\venv\lib\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+Process finished with exit code 0
