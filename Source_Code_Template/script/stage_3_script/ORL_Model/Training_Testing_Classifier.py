@@ -18,6 +18,8 @@ def train_model(trainingDL, model, n_epochs=20):
         running_loss = 0.0
         for i, (x, y) in enumerate(trainingDL):
             opt.zero_grad()
+            print("Model output: ", model(x))
+            print("Actual: ", y)
             loss_value = L(model(x), y)
             loss_value.backward()
             opt.step()
@@ -25,9 +27,9 @@ def train_model(trainingDL, model, n_epochs=20):
             epochs.append(epoch+i/N)
             running_loss += loss_value.item()
             #losses.append(loss_value.item())
-            if i % 3000 == 2999:
-                print('loss: %.3f' % (running_loss / 3000))
-                losses.append((running_loss / 3000))
+            if i % 20 == 19:
+                print('loss: %.3f' % (running_loss / 20))
+                losses.append((running_loss / 20))
                 running_loss = 0.0
     
     #print(epoch+1, epoch)

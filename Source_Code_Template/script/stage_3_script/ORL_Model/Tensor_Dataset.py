@@ -11,7 +11,7 @@ class TensorDataset(Dataset):
         self.x = self.x / 255.
 
         #One Hot Encoding
-        self.y = func.one_hot(self.y.long(), num_classes=10).to(float)
+        #self.y = func.one_hot(self.y.long(), num_classes=41).to(float)
     
     def __getitem__(self, index):
         return self.x[index], self.y[index]
