@@ -38,7 +38,7 @@ testingDL = DataLoader(testingDS, batch_size=20)
 mnist_cnn = MNIST_Classifier_CNN()
 
 # Train model
-'''
+
 epochs, losses, trained_model = train_model(trainingDL, mnist_cnn, 20)
 
 plt.plot(epochs.reshape(20,-1).mean(axis=1), losses.reshape(20,-1).mean(axis=1), "o--")
@@ -46,6 +46,6 @@ plt.xlabel("Epoch")
 plt.ylabel("Loss")
 plt.title("Training Loss over Epochs")
 plt.savefig("mnist_training_loss")
-'''
+
 trained_model = torch.load("checkpoint.pth")
 eval_model(testingDS, trained_model)

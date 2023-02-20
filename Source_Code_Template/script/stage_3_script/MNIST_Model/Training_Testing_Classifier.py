@@ -2,6 +2,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 from torch.optim import SGD
+from sklearn import metrics
 
 def train_model(trainingDL, model, n_epochs=20):
     opt = SGD(model.parameters(), lr=0.01)
@@ -37,11 +38,14 @@ def eval_model(testingDS, model):
     
     with torch.no_grad():
         model.eval()
-        numCorrect = 0
+        y_pred = []
+        y_true = []
         for (x, y) in testingDS:
             pred = model(x)
-            if torch.argmax(pred) == torch.argmax(y):
-                numCorrect += 1
+            y_pred.append(torch.argmax(pred))
+            y_true.append(torch.argmax(y))
+
     
-    print(len(testingDS))
-    print("Accuracy on entire test dataset: ", ((numCorrect/len(testingDS))*100))
+    print(metrics.classification_report(y_true, y_pred, digits=3))
+    #print(len(testingDS))
+    #print("Accuracy on entire test dataset: ", ((numCorrect/len(testingDS))*100))
