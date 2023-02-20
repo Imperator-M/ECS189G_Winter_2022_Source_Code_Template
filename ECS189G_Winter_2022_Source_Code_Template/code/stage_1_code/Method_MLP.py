@@ -12,7 +12,7 @@ from torch import nn
 import numpy as np
 
 
-class Method_MLP(method, nn.Module):
+class Method_MLP(nn.Module):
     data = None
     # it defines the max rounds to train the model
     max_epoch = 500
@@ -22,9 +22,8 @@ class Method_MLP(method, nn.Module):
     # it defines the the MLP model architecture, e.g.,
     # how many layers, size of variables in each layer, activation function, etc.
     # the size of the input/output portal of the model architecture should be consistent with our data input and desired output
-    def __init__(self, mName, mDescription):
-        method.__init__(self, mName, mDescription)
-        nn.Module.__init__(self)
+    def __init__(self):
+        super(Method_MLP, self).__init__()
         # check here for nn.Linear doc: https://pytorch.org/docs/stable/generated/torch.nn.Linear.html
         self.fc_layer_1 = nn.Linear(4, 4)
         # check here for nn.ReLU doc: https://pytorch.org/docs/stable/generated/torch.nn.ReLU.html

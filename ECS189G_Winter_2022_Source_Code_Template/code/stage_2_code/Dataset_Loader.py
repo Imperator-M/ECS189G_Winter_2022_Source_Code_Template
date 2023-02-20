@@ -11,6 +11,7 @@ import csv
 import warnings
 import sklearn.exceptions
 warnings.filterwarnings("ignore", category=sklearn.exceptions.UndefinedMetricWarning)
+import numpy as np
 
 class Dataset_Loader(dataset):
     data = None
@@ -33,5 +34,4 @@ class Dataset_Loader(dataset):
         df = pd.read_csv(self.testing_dataset_source_folder_path + self.testing_dataset_source_file_name, header=None)
         X_test = df.iloc[:, 1:]
         y_test = df[df.columns[0]]
-
         return {'X_train': X_train, 'y_train': y_train, 'X_test': X_test, 'y_test': y_test}
