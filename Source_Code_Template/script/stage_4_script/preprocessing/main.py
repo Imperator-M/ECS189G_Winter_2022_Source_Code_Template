@@ -5,6 +5,7 @@ from preprocessing import pandas_loader, remove_punc, stemmed_review
 import torch
 import torchtext # NEEDS VERSION 0.9.1 TO WORK WITH LEGACY!!!
 from rnn import RNN
+from train import model_training
 
 # Begin by loading in the data
 print("Loading data in dataframes, standby...")
@@ -96,4 +97,4 @@ print("Completed building RNN model")
 
 # Begin training of model
 print("Starting model training...")
-
+model_training(model, optimizer, 15, train_loader, test_loader, torch.device(0))
