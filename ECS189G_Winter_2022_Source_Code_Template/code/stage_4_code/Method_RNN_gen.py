@@ -98,7 +98,7 @@ class Method_RNN(method, nn.Module):
             # word_index = np.argmax(p)
             # print(len(p))
             # print(sum(p))
-            # print(torch.argmax(last_word_logits))
+
             word_index = torch.argmax(y_pred[0][-1]).item()
             wordToAdd = indexToWordMap[word_index]
             if wordToAdd == '':
