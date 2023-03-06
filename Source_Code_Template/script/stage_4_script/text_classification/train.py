@@ -26,7 +26,7 @@ def model_training(model, optimizer, num_epochs, train_dataloader, test_dataload
             
             if batch_idx == 199:
                 losses.append(loss.item())
-                print(losses)
+                #print(losses)
     
         with torch.set_grad_enabled(False):
             f1, recall, precision = compute_metrics(model, train_dataloader, device)
