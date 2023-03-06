@@ -70,8 +70,8 @@ train_dataset = torchtext.legacy.data.TabularDataset(path="pure_training.csv", f
 test_dataset = torchtext.legacy.data.TabularDataset(path="pure_testing.csv", format="csv", skip_header=True, fields=Fields)
 print("Data loaded successfully")
 
-# Build vocab for both the TEXT data (max 50k) and LABEL data (Only 2 since "0" or "1")
-TEXT.build_vocab(train_dataset, max_size=50000)
+# Build vocab for both the TEXT data (max 75k) and LABEL data (Only 2 since "0" or "1")
+TEXT.build_vocab(train_dataset, max_size=75000)
 LABEL.build_vocab(train_dataset)
 print("Creating torchtext data loaders...")
 train_loader, test_loader = torchtext.legacy.data.BucketIterator.splits(
@@ -93,7 +93,7 @@ model = RNN(input_dim=len(TEXT.vocab),
             output_dim=2)
 
 model = model.to(torch.device(0))
-optimizer = torch.optim.Adam(model.parameters(), lr=0.005)
+optimizer = torch.optim.Adam(model.parameters(), lr=0.007)
 print("Completed building RNN model")
 
 # Begin training of model
