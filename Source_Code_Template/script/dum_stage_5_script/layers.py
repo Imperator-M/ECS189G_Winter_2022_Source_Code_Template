@@ -1,5 +1,4 @@
-# Code used from PyGCN repo
-
+# Source code provided by Kipf & Welling
 import math
 
 import torch

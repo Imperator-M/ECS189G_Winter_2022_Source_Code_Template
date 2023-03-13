@@ -6,8 +6,8 @@ import torch.nn.functional as F
 import torch.optim as optim
 
 from code.base_class.method import method
-from Evaluate_Accuracy import *
-from layers import *
+from code.stage_5_code.Evaluate_Accuracy import *
+from code.stage_5_code.layers import *
 
 class PubMed_Method(method, nn.Module):
     data = None
@@ -32,7 +32,7 @@ class PubMed_Method(method, nn.Module):
         x = self.gconv2(x, adj)
         return F.log_softmax(x, dim=1)
     
-    def training(self, graph, train_test_val):
+    def trainer(self, graph, train_test_val):
         self.train()
         
         optimizer = optim.Adam(self.parameters(), lr=self.lr, weight_decay=self.dr)
@@ -64,7 +64,7 @@ class PubMed_Method(method, nn.Module):
         idx_test = train_test_val["idx_test"]
 
         with torch.no_grad():
-            output = self(graph["X", graph["utility"]["A"]])
+            output = self(graph["X"], graph["utility"]["A"])
             _, predicted = torch.max(output, dim=1)
 
             return predicted[idx_test]
@@ -73,7 +73,7 @@ class PubMed_Method(method, nn.Module):
         print('method running...')
         print('--start training...')
 
-        self.training(self.data['graph'], self.data['train_test_val'])
+        self.trainer(self.data['graph'], self.data['train_test_val'])
         print('--start testing...')
         pred_y = self.test(self.data['graph'], self.data['train_test_val'])
 
