@@ -18,8 +18,6 @@ class Setting_Train_Test_Split(setting):
         loaded_data = self.dataset.load()
 
         graph, train_test_val = loaded_data['graph'], loaded_data['train_test_val']
-        #train_test_val = {'idx_train': idx_train, 'idx_test': idx_test, 'idx_val': idx_val}
-        #graph = {'node': idx_map, 'edge': edges, 'X': features, 'y': labels, 'utility': {'A': adj, 'reverse_idx': reverse_idx_map}}
 
         # run MethodModule
         self.method.data = {'graph': graph, 'train_test_val': train_test_val}

@@ -109,7 +109,7 @@ class Dataset_Loader(dataset):
             # idx_val = range(1200, 1500)
         elif self.dataset_source_file_name == 'pubmed':
             num_train_per_class = 20
-            num_test_per_class = 150
+            num_test_per_class = 200
             num_classes = 3
             idx_train = []
             idx_test = []
