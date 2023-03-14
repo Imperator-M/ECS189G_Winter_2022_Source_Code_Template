@@ -9,6 +9,8 @@ from code.base_class.method import method
 from code.stage_5_code.Evaluate_Accuracy import *
 from code.stage_5_code.layers import *
 
+import matplotlib.pyplot as plt
+
 class PubMed_Method(method, nn.Module):
     data = None
     epoch = 500
@@ -54,8 +56,11 @@ class PubMed_Method(method, nn.Module):
             print("Epoch:", epoch, "Loss:", loss.item())
         
 
-        #plt.plot(losses, )
-        #
+        plt.plot(losses)
+        plt.xlabel("Epoch")
+        plt.ylabel("Loss")
+        plt.title("PubMed Training Loss")
+        plt.savefig("pubmed_training_loss.png")
         #
     
     def test(self, graph, train_test_val):
